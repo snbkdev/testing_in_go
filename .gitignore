@@ -1,0 +1,31 @@
+# Бинарные файлы и плагины (Windows, Linux, macOS)
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Тестовые бинарные файлы (создаются при `go test -c`)
+*.test
+
+# Артефакты покрытия кода и профилирования (ключевое для тестирования)
+*.out
+coverage.*
+*.coverprofile
+profile.cov
+cpu.prof
+mem.prof
+trace.out
+
+# Директории зависимостей (обычно не коммитятся, если не используется vendor)
+# vendor/
+
+# Файлы workspace (Go 1.18+)
+go.work
+go.work.sum
+
+# Переменные окружения и секреты
+.env
+.env.*
+
+info.txt
