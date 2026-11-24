@@ -1,11 +1,13 @@
 package main
 
 import (
+	"encoding/gob"
 	"flag"
 	"log"
 	"net/http"
 	"os"
 	"strings"
+	"webApp/pkg/data"
 	"webApp/pkg/db"
 
 	"github.com/alexedwards/scs/v2"
@@ -18,6 +20,8 @@ type application struct {
 }
 
 func main() {
+	gob.Register(data.User{})
+
 	// set up app config
 	app := application{}
 
@@ -44,6 +48,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	defer conn.Close()
 
 	app.DB = db.PostgresConn{DB: conn}
 
